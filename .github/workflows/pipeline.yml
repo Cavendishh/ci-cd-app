@@ -43,9 +43,6 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'ci-cd-test-appi'
           heroku_email: 'kavanderjanne@gmail.com'
-          healthcheck: 'https://ci-cd-test-appi.herokuapp.com/'
-          checkstring: 'Welcome'
-          rollbackonhealthcheckfailed: true
 
       - uses: actions/checkout@v2 # This solves crash when creating a tag
       - name: Bump version and push tag
