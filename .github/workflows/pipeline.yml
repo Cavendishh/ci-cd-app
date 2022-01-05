@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Lint code
+        run: npm run eslint
+
       - name: Build app
         run: npm run build
 
@@ -37,3 +40,6 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'ci-cd-test-appi'
           heroku_email: 'kavanderjanne@gmail.com'
+          healthcheck: 'https://ci-cd-test-appi.herokuapp.com/'
+          checkstring: 'Welcome'
+          rollbackonhealthcheckfailed: true
