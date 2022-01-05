@@ -3,11 +3,8 @@
 # name: Health check
 
 # on:
-#   push:
-#     branches:
-#       - master
-#   # schedule:
-#   #   - cron: '* * * * *'
+#   schedule:
+#     - cron: '* * * * *'
 # jobs:
 #   healthcheck:
 #     runs-on: ubuntu-18.04
