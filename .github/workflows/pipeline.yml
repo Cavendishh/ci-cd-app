@@ -22,3 +22,14 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: Deploy
+        if: ${{ github.event_name == 'push' }}
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: 'ci-cd-test-appi'
+          heroku_email: 'kavanderjanne@gmail.com'
+          healthcheck: 'https://pokedex-pipeline-app.herokuapp.com/healthcheck'
+          checkstring: 'ok'
+          rollbackonhealthcheckfailed: true
