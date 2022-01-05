@@ -35,6 +35,9 @@ jobs:
           command: npm run test:e2e
           start: npm run start
           wait-on: http://localhost:8000
+          healthcheck: 'https://ci-cd-test-appi.herokuapp.com/api/health'
+          checkstring: 'ok'
+          rollbackonhealthcheckfailed: true
 
       - name: Deploy
         if: ${{ github.event_name == 'push' }}
